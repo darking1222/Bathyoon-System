@@ -1,0 +1,23 @@
+[
+  {
+    "id": "Public Rules",
+    "title": "قوانين العامة",
+    "setEmoji": "1406135979349377127",
+    "description": "rules/file1.txt",
+    "hidden": false
+  },
+  {
+    "id": "Crime Rules",
+    "title": "قوانين الاجرام",
+    "setEmoji": "1406135979349377127",
+    "description": "rules/file2.txt",
+    "hidden": false
+  },
+  {
+    "id": "Restaurant and Workshop Rules",
+    "title": "قوانين المطاعم و الورش",
+    "setEmoji": "1406135979349377127",
+    "description": "rules/file3.txt",
+    "hidden": false
+  }
+]
