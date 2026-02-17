@@ -19,7 +19,7 @@ const {
     res.send('Hello Express app!');
   });
 
-  const PORT = process.env.SERVER_PORT || process.env.PORT || 3000;
+  const PORT = process.env.SERVER_PORT || process.env.PORT || 25567;
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`[Web] Server started on port ${PORT}`);
   });
