@@ -1,82 +1,56 @@
-const {
-    Client,
-    intents,
-    Collection,
-    MessageEmbed,
-    MessageAttachment,
-    MessageActionRow,
+const { 
+    Client, 
+    intents, 
+    Collection, 
+    MessageEmbed, 
+    MessageAttachment, 
+    MessageActionRow, 
     MessageButton,
-    MessageSelectMenu,
-    Permissions
+    MessageSelectMenu, 
+    Permissions  
   } = require("discord.js");
-
+  
   const client = new Client({ intents: 32767 });
-
+  
   const express = require('express');
   const app = express();
-
+  
   app.get('/', (req, res) => {
     res.send('Hello Express app!');
   });
-
-  const PORT = process.env.SERVER_PORT || process.env.PORT || 3000;
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`[Web] Server started on port ${PORT}`);
+  
+  app.listen(3000, () => {
+    console.log('Server Started');
   });
-
+  
   function loadAliasesToBot() {
   }
-
+  
   const fs = require("fs");
   const ms = require(`ms`);
   const Discord = require("discord.js");
-
-  // Load config from file, then override with environment variables if set (for Pterodactyl)
+  const { prefix, owners, Guild } = require(`${process.cwd()}/config`);
   const config = require(`${process.cwd()}/config`);
-  if (process.env.BOT_TOKEN) config.token = process.env.BOT_TOKEN;
-  if (process.env.BOT_PREFIX) config.prefix = process.env.BOT_PREFIX;
-  if (process.env.BOT_OWNERS) config.owners = process.env.BOT_OWNERS.split(',');
-  if (process.env.BOT_GUILD) config.Guild = process.env.BOT_GUILD;
-
-  const { prefix, owners, Guild } = config;
   const Data = require("pro.db");
   const { createCanvas, registerFont } = require("canvas");
   const canvas = require('canvas');
-
-  process.on("unhandledRejection", (reason, promise) => {
-    console.error("[Error] Unhandled Rejection:", reason);
-  });
-  process.on("uncaughtException", (err, origin) => {
-    console.error("[Error] Uncaught Exception:", err);
-  });
-  process.on('uncaughtExceptionMonitor', (err, origin) => {
-    console.error("[Error] Uncaught Exception Monitor:", err);
-  });
+  
+   process.on("unhandledRejection", (reason, promise) => { return })
+   process.on("uncaughtException", (err, origin) => { return })
+  process.on('uncaughtExceptionMonitor', (err, origin) => { return });
+  process.on('multipleResolves', (type, promise, reason) => { return })
 
   module.exports = client;
-
+  
   client.commands = new Collection();
   client.slashCommands = new Collection();
-  client.config = config;
+  client.config = require(`${process.cwd()}/config`);
   require("./handler")(client);
   client.prefix = prefix;
+  client.login(config.token);
+  
 
-  if (!config.token || config.token === '') {
-    console.error('[FATAL] No bot token provided! Set BOT_TOKEN environment variable or edit config.json');
-    process.exit(1);
-  }
-
-  console.log('[Bot] Logging in...');
-  client.login(config.token).catch(err => {
-    console.error('[FATAL] Failed to login:', err.message);
-    process.exit(1);
-  });
-
-
-  client.on('ready', () => {
-    console.log(`[Bot] Logged in as ${client.user.tag}`);
-    console.log(`[Bot] Serving ${client.guilds.cache.size} guild(s)`);
-    console.log(`[Bot] Loaded ${client.commands.size} command(s)`);
+  client.on('ready', () => { 
     client.user.setActivity(".", {type: "STREAMING", url: "https://discord.gg/discord"})
   });
 
