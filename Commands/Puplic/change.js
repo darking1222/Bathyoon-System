@@ -1,5 +1,5 @@
 const { MessageAttachment ,Discord } = require('discord.js')
-const Canvas = require("canvas");
+const Canvas = require("@napi-rs/canvas");
 const deepai = require("deepai");
 const isImageUrl = require("is-image-url");
 const cloudinary = require("cloudinary").v2;

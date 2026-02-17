@@ -1,5 +1,5 @@
 const { MessageAttachment, MessageActionRow, MessageButton } = require('discord.js');
-const { Canvas, resolveImage } = require('canvas-constructor/cairo');
+const { Canvas, resolveImage } = require('canvas-constructor/napi-rs');
 const fetch = require('node-fetch');
 const Data = require("pro.db");
 

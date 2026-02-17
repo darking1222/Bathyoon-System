@@ -33,8 +33,7 @@ const {
   const { prefix, owners, Guild } = require(`${process.cwd()}/config`);
   const config = require(`${process.cwd()}/config`);
   const Data = require("pro.db");
-  const { createCanvas, registerFont } = require("canvas");
-  const canvas = require('canvas');
+  const { createCanvas, GlobalFonts, loadImage } = require("@napi-rs/canvas");
   
    process.on("unhandledRejection", (reason, promise) => { return })
    process.on("uncaughtException", (err, origin) => { return })
@@ -48,10 +47,18 @@ const {
   client.config = require(`${process.cwd()}/config`);
   require("./handler")(client);
   client.prefix = prefix;
-  client.login(config.token);
-  
+  console.log('[Bot] Starting...');
+  client.login(config.token).then(() => {
+    console.log('[Bot] Login successful.');
+  }).catch((err) => {
+    console.error('[Bot] Login FAILED:', err.message);
+  });
 
-  client.on('ready', () => { 
+
+  client.on('ready', () => {
+    console.log(`[Bot] Ready! Logged in as ${client.user.tag}`);
+    console.log(`[Bot] Serving ${client.guilds.cache.size} server(s)`);
+    console.log(`[Bot] Commands loaded: ${client.commands.size}`);
     client.user.setActivity(".", {type: "STREAMING", url: "https://discord.gg/discord"})
   });
 

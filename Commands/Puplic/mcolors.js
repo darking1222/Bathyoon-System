@@ -1,6 +1,6 @@
 const { MessageAttachment, MessageActionRow, MessageSelectMenu } = require("discord.js");
 const db = require("pro.db");
-const { createCanvas, loadImage } = require("canvas");
+const { createCanvas, loadImage } = require("@napi-rs/canvas");
 
 module.exports = {
   name: "mcolors",

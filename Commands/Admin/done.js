@@ -1,6 +1,6 @@
-const { createCanvas, loadImage, registerFont } = require('canvas');
-registerFont('./Settings/Fonts/Cairo.ttf', { family: 'Cairo' });
-registerFont('./Settings/Fonts/JF-Flat-Regular.ttf', { family: 'Flat' });
+const { createCanvas, loadImage, GlobalFonts } = require('@napi-rs/canvas');
+GlobalFonts.registerFromPath('./Settings/Fonts/Cairo.ttf', 'Cairo');
+GlobalFonts.registerFromPath('./Settings/Fonts/JF-Flat-Regular.ttf', 'Flat');
 const { prefix, owners } = require(`${process.cwd()}/config`);
 
 module.exports = {
