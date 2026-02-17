@@ -33,8 +33,7 @@ const {
   const { prefix, owners, Guild } = require(`${process.cwd()}/config`);
   const config = require(`${process.cwd()}/config`);
   const Data = require("pro.db");
-  const { createCanvas, registerFont } = require("canvas");
-  const canvas = require('canvas');
+  const { createCanvas, GlobalFonts, loadImage } = require("@napi-rs/canvas");
   
    process.on("unhandledRejection", (reason, promise) => { return })
    process.on("uncaughtException", (err, origin) => { return })

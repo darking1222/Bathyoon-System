@@ -1,6 +1,6 @@
 const { Client, intents, Collection, MessageEmbed, MessageAttachment, MessageActionRow, MessageButton,
 MessageSelectMenu, WebhookClient, MessageModal, Role, Modal, TextInputComponent, Permissions } = require("discord.js");
-const { createCanvas, registerFont, canvas, loadImage } = require("canvas")
+const { createCanvas, GlobalFonts, loadImage } = require("@napi-rs/canvas")
 const Discord = require("discord.js")
 var { inviteTracker } = require("discord-inviter");
 let client = require('../..')
@@ -14,7 +14,7 @@ module.exports = client;
 client.config = require(`${process.cwd()}/config`);
 //const tracker = new inviteTracker(client);
 const { createTranscript } = require("discord-html-transcripts");
-const { Canvas, loadFont } = require('canvas-constructor/cairo');
+const { Canvas, loadFont } = require('canvas-constructor/napi-rs');
 const humanizeDuration = require('humanize-duration');
 const emojione = require('emojione');
 

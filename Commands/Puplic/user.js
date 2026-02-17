@@ -1,5 +1,5 @@
 const { MessageAttachment } = require('discord.js');
-const { Canvas, loadFont, resolveImage } = require('canvas-constructor/cairo');
+const { Canvas, loadFont, resolveImage } = require('canvas-constructor/napi-rs');
 const humanizeDuration = require('humanize-duration');
 const { inviteTracker } = require("discord-inviter");
 const Data = require("pro.db");

@@ -1,4 +1,4 @@
-const { loadImage, Canvas } = require('canvas');
+const { loadImage } = require('@napi-rs/canvas');
 const Pro = require("pro.db");
 const { owners } = require(`${process.cwd()}/config`);
 

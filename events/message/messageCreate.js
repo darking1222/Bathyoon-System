@@ -1,6 +1,6 @@
 const { Client, intents, Collection, MessageEmbed, MessageAttachment, MessageActionRow, MessageButton, MessageSelectMenu, WebhookClient, MessageModal, Role, Modal, TextInputComponent } = require("discord.js");
-const { createCanvas, registerFont, canvas, loadImage } = require("canvas")
-const { Canvas, loadFont } = require('canvas-constructor/cairo');
+const { createCanvas, GlobalFonts, loadImage } = require("@napi-rs/canvas")
+const { Canvas, loadFont } = require('canvas-constructor/napi-rs');
 const Data = require("pro.db");
 const Discord = require('discord.js');
 const axios = require('axios');

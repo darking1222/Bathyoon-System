@@ -1,5 +1,5 @@
 const { MessageActionRow, MessageSelectMenu, MessageButton } = require('discord.js');
-const { createCanvas, loadImage, registerFont } = require('canvas');
+const { createCanvas, loadImage, GlobalFonts } = require('@napi-rs/canvas');
 const { owners } = require(`${process.cwd()}/config`);
 const Data = require("pro.db");
 
@@ -16,7 +16,7 @@ module.exports = {
         }
 
 
-        registerFont(`./Fonts/Cairo-Regular.ttf`, { family: 'Cairo' });
+        GlobalFonts.registerFromPath(`./Fonts/Cairo-Regular.ttf`, 'Cairo');
 
         const initialMenu = new MessageSelectMenu()
         .setCustomId('edit_select')
